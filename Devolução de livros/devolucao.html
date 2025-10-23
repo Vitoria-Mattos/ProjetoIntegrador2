@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devolução de Livros • Biblioteca</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="devolucao.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Devolução de Livro</h2>
+
+    <form id="devolucaoForm">
+      <label for="raAluno">RA do Aluno:</label>
+      <input type="text" id="raAluno" name="raAluno" placeholder="Digite o RA" required>
+
+      <label for="codigoLivro">Código do Livro:</label>
+      <input type="text" id="codigoLivro" name="codigoLivro" placeholder="Digite o código do livro" required>
+
+      <button type="submit">Devolver</button>
+    </form>
+
+    <div class="msg" id="mensagem"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('devolucaoForm');
+    const mensagem = document.getElementById('mensagem');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const ra = document.getElementById('raAluno').value;
+      const codigo = document.getElementById('codigoLivro').value;
+
+      mensagem.textContent = `Livro ${codigo} devolvido! `;
+      form.reset();
+    });
+  </script>
+</body>
+</html>

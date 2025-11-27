@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Livros</title>
+<link rel="stylesheet" href="CadastroLivro.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Livros Cadastrados</h2>
+    <div id="listaLivros"></div>
+    <button onclick="window.location.href='index.html'">Voltar</button>
+  </div>
+
+<script>
+async function carregarLivros() {
+  try {
+    const res = await fetch("http://localhost:4000/livros");
+    if (!res.ok) throw new Error("Erro ao buscar livros");
+    const livros = await res.json();
+
+    if (!Array.isArray(livros) || livros.length === 0) {
+      document.getElementById("listaLivros").innerHTML = "<p style='color:white;'>Nenhum livro encontrado.</p>";
+      return;
+    }
+
+    let html = `<table style="width:100%; border-collapse: collapse; color:#cbd5e1;">
+                  <tr style="background:#1e293b;">
+                    <th style="border:1px solid #334155; padding:8px;">Código</th>
+                    <th style="border:1px solid #334155; padding:8px;">Nome</th>
+                    <th style="border:1px solid #334155; padding:8px;">Autor</th>
+                    <th style="border:1px solid #334155; padding:8px;">Páginas</th>
+                    <th style="border:1px solid #334155; padding:8px;">Categoria</th>
+                  </tr>`;
+
+    livros.forEach(livro => {
+      html += `<tr>
+                 <td style="border:1px solid #334155; padding:8px;">${livro.codigo}</td>
+                 <td style="border:1px solid #334155; padding:8px;">${livro.nome}</td>
+                 <td style="border:1px solid #334155; padding:8px;">${livro.autor}</td>
+                 <td style="border:1px solid #334155; padding:8px;">${livro.paginas}</td>
+                 <td style="border:1px solid #334155; padding:8px;">${livro.categoria}</td>
+               </tr>`;
+    });
+
+    html += "</table>";
+    document.getElementById("listaLivros").innerHTML = html;
+  } catch (err) {
+    document.getElementById("listaLivros").innerHTML = "<p style='color:#f87171;'>Erro ao carregar livros.</p>";
+    console.error(err);
+  }
+}
+
+carregarLivros();
+</script>
+</body>
+</html>

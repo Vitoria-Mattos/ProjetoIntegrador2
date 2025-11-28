@@ -3,14 +3,9 @@ CREATE TABLE IF NOT EXISTS retiradas (
     ra_aluno VARCHAR(20) NOT NULL,
     codigo_livro INT NOT NULL,
     data_retirada TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    devolvido TINYINT(1) DEFAULT 0,
+    data_devolucao DATETIME NULL,
     FOREIGN KEY (codigo_livro) REFERENCES livros(id)
 );
 
 
-CREATE TABLE IF NOT EXISTS devolucoes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    ra_aluno VARCHAR(20) NOT NULL,
-    codigo_livro INT NOT NULL,
-    data_devolucao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (codigo_livro) REFERENCES livros(id)
-);

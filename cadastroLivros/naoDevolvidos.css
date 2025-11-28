@@ -1,0 +1,68 @@
+body {
+  font-family: "Poppins", system-ui, -apple-system, Roboto, Arial;
+  background: linear-gradient(135deg, #1e3a8a, #111827);
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #111827;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #f8fafc;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  background: #1e293b;
+  padding: 12px;
+  color: #e2e8f0;
+  font-weight: 600;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  color: #cbd5e1;
+  border-top: 1px solid #1f2937;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Botão */
+button {
+  width: 100%;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #2563eb;
+}

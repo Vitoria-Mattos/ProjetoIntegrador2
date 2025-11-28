@@ -16,7 +16,7 @@ router.post("/retirar", (req, res) => {
     if (livro.exemplares_disponiveis <= 0)
       return res.status(400).json({ erro: "Não há exemplares disponíveis" });
 
-    const sqlInsert = "INSERT INTO retiradas (ra_aluno, codigo_livro) VALUES (?, ?)";
+    const sqlInsert = `INSERT INTO retiradas (ra_aluno, codigo_livro, devolvido) VALUES (?, ?, 0)`;
     db.query(sqlInsert, [raAluno, codigoLivro], (err) => {
       if (err) return res.status(500).json({ erro: "Erro ao registrar retirada" });
 
@@ -35,30 +35,37 @@ router.post("/devolver", (req, res) => {
 
   const sqlRetirada = `
       SELECT * FROM retiradas
-      WHERE ra_aluno = ? AND codigo_livro = ?
+      WHERE ra_aluno = ? AND codigo_livro = ? AND devolvido = 0
       ORDER BY data_retirada DESC
       LIMIT 1
   `;
+
   db.query(sqlRetirada, [raAluno, codigoLivro], (err, results) => {
     if (err) return res.status(500).json({ mensagem: "Erro ao consultar retirada" });
-    if (results.length === 0) return res.status(404).json({ mensagem: "Nenhuma retirada encontrada" });
+    if (results.length === 0)
+      return res.status(404).json({ mensagem: "Nenhuma retirada pendente encontrada" });
 
     const retirada = results[0];
 
-    const sqlInserirDevolucao = "INSERT INTO devolucoes (ra_aluno, codigo_livro) VALUES (?, ?)";
-    db.query(sqlInserirDevolucao, [raAluno, codigoLivro], (err) => {
+    const sqlUpdateRetirada = `
+      UPDATE retiradas
+      SET devolvido = 1, data_devolucao = NOW()
+      WHERE id = ?
+    `;
+
+    db.query(sqlUpdateRetirada, [retirada.id], (err) => {
       if (err) return res.status(500).json({ mensagem: "Erro ao registrar devolução" });
 
-      const sqlUpdateLivro = "UPDATE livros SET exemplares_disponiveis = exemplares_disponiveis + 1 WHERE id = ?";
+      const sqlUpdateLivro = `
+        UPDATE livros
+        SET exemplares_disponiveis = exemplares_disponiveis + 1
+        WHERE id = ?
+      `;
+
       db.query(sqlUpdateLivro, [codigoLivro], (err) => {
         if (err) return res.status(500).json({ mensagem: "Erro ao atualizar livro" });
 
-        const sqlDeleteRetirada = "DELETE FROM retiradas WHERE id = ?";
-        db.query(sqlDeleteRetirada, [retirada.id], (err) => {
-          if (err) return res.status(500).json({ mensagem: "Erro ao remover retirada" });
-
-          res.json({ mensagem: "Livro devolvido com sucesso!" });
-        });
+        res.json({ mensagem: "Livro devolvido com sucesso!" });
       });
     });
   });

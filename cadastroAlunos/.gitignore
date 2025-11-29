@@ -1,0 +1,11 @@
+# Node.js
+node_modules/
+.env
+npm-debug.log*
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Sistema
+*.log

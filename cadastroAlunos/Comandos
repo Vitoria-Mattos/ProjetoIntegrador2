@@ -1,0 +1,45 @@
+/* 
+Regras de ouro:
+
+Sempre rodar npm run dev dentro da pasta backend
+
+Sempre fazer git pull antes de começar a editar
+
+Sempre fazer git add . && git commit -m "mensagem" depois de editar
+
+Nunca enviar node_modules/ ou .env pro GitHub
+
+Teste no navegador http://localhost:3000 antes de abrir o Insomnia
+
+SHOW DATABASES;                          -- mostra todos os bancos
+USE biblioteca_universitaria;            -- seleciona o banco
+SHOW TABLES;                             -- mostra tabelas do banco
+DESCRIBE alunos;                         -- mostra colunas da tabela alunos
+SELECT * FROM alunos;                    -- lista todos os alunos
+DELETE FROM alunos WHERE id = 5;         -- exclui aluno específico
+
+git init                                 # inicia um repositório local
+git config --global user.name "Seu Nome"
+git config --global user.email "seu@email.com"
+git config --list                        # ver configurações atuais
+
+git status                               # mostra o que mudou
+git log                                  # histórico de commits
+git diff                                 # mostra diferenças antes do commit
+
+git add .                                # adiciona todos os arquivos alterados
+git commit -m "Mensagem explicando a mudança"
+
+
+git branch -M main                       # garante que a branch principal se chama main
+git remote add origin https://github.com/SEU_USUARIO/NOME_DO_REPO.git
+git push -u origin main                  # envia tudo pro GitHub (primeira vez)
+git push                                 # envia os próximos commits
+git pull                                 # puxa as mudanças do GitHub para seu PC
+
+npm init -y                              # cria um novo package.json do zero
+npm install express mysql2 cors dotenv   # instala bibliotecas básicas
+npm install --save-dev nodemon           # instala nodemon para ambiente dev
+
+
+*/

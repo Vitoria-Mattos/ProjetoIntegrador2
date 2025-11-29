@@ -1,0 +1,66 @@
+body {
+  font-family: "Poppins", system-ui, -apple-system, Roboto, Arial;
+  background: linear-gradient(135deg, #1e3a8a, #111827);
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #111827;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: 95%;
+  max-width: 900px;
+  overflow-x: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+}
+
+th {
+  background: #1e293b;
+  font-weight: 600;
+}
+
+tr:hover {
+  background: #273449;
+}
+
+.voltar {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #60a5fa;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.voltar:hover {
+  color: #93c5fd;
+}

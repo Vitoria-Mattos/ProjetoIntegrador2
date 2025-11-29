@@ -1,0 +1,20 @@
+:root {
+  --azul-puc: #003366;
+  --fundo-escuro: #0f172a;
+  --texto: #f1f5f9;
+}
+
+body { margin: 0; background: linear-gradient(135deg, var(--azul-puc), var(--fundo-escuro)); }
+
+header {
+  width: 100%;
+  background: var(--azul-puc);
+  padding: 16px 0;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  position: fixed; top: 0; left: 0; z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+main { padding-top: 90px; }

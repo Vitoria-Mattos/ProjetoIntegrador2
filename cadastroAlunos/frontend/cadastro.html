@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Aluno • Biblioteca</title>
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+  <header>📚 Biblioteca Universitária • PUC-Campinas</header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <h1>Cadastro de Aluno</h1>
+
+        <form id="formAluno" novalidate>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" required placeholder="Nome completo" />
+
+          <label for="ra">RA <small>(exatamente 8 dígitos)</small></label>
+          <input
+            type="text"
+            id="ra"
+            required
+            inputmode="numeric"
+            minlength="8"
+            maxlength="8"
+            pattern="^\d{8}$"
+            placeholder="Ex: 25021808"
+          />
+
+          <label for="curso">Curso <small>(escolha na lista ou digite)</small></label>
+          <input list="cursosList" id="curso" required placeholder="Digite ou selecione" />
+          <datalist id="cursosList">
+            <option value="Sistemas de Informação"></option>
+            <option value="Ciência da Computação"></option>
+            <option value="Engenharia de Computação"></option>
+            <option value="Engenharia Civil"></option>
+            <option value="Engenharia Elétrica"></option>
+            <option value="Engenharia Mecânica"></option>
+            <option value="Arquitetura e Urbanismo"></option>
+            <option value="Administração"></option>
+            <option value="Direito"></option>
+            <option value="Publicidade e Propaganda"></option>
+            <option value="Jornalismo"></option>
+            <option value="Medicina"></option>
+            <option value="Enfermagem"></option>
+            <option value="Psicologia"></option>
+            <option value="Design Digital"></option>
+          </datalist>
+
+          <label for="email">Email institucional <small>(@puccampinas.edu.br)</small></label>
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="seu.nome@puccampinas.edu.br"
+            pattern="^[a-zA-Z0-9._%+-]+@puccampinas\.edu\.br$"
+          />
+
+          <label for="telefone">Telefone <small>(formato (19) 9####-####)</small></label>
+          <input
+            type="tel"
+            id="telefone"
+            required
+            placeholder="(19) 9####-####"
+            pattern="^\(19\)\s?\d{4,5}-\d{4}$"
+            maxlength="17"
+          />
+
+          <button type="submit">Cadastrar</button>
+          <div id="msg" class="msg"></div>
+        </form>
+
+        <a href="index.html" class="voltar">⬅ Voltar ao Menu</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/cadastro.js"></script>
+</body>
+</html>

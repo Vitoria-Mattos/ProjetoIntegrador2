@@ -64,7 +64,7 @@ app.post("/cadastrar", (req, res) => {
   });
 });
 
-// ✅ Rota para listar todos os livros
+// Rota para listar todos os livros
 app.get("/livros", (req, res) => {
   const sql = "SELECT * FROM livros ORDER BY codigo ASC"; // Ordena pelo código
   db.query(sql, (err, results) => {
@@ -100,6 +100,38 @@ app.get("/relatorio/nao-devolvidos", (req, res) => {
     res.json(results);
   });
 });
+
+// RELATÓRIO DE PONTUAÇÃO DE LEITURA
+app.get("/pontuacao", (req, res) => {
+  const query = `
+    SELECT 
+        a.id,
+        a.nome,
+        a.ra,
+        COUNT(r.id) AS livros_lidos,
+        CASE
+            WHEN COUNT(r.id) BETWEEN 0 AND 5 THEN 'Iniciante'
+            WHEN COUNT(r.id) BETWEEN 6 AND 10 THEN 'Regular'
+            WHEN COUNT(r.id) BETWEEN 11 AND 20 THEN 'Ativo'
+            WHEN COUNT(r.id) > 20 THEN 'Extremo'
+        END AS categoria
+    FROM alunos a
+    LEFT JOIN retiradas r 
+        ON r.ra_aluno = a.ra
+        AND r.devolvido = 1
+    GROUP BY a.id, a.nome, a.ra
+    ORDER BY a.nome ASC;
+  `;
+
+  db.query(query, (err, rows) => {
+    if (err) {
+      console.error("ERRO NO RELATÓRIO:", err);
+      return res.status(500).json({ error: "Erro ao processar relatório." });
+    }
+    res.json(rows);
+  });
+});
+
 
 // Porta
 const PORT = 4000;

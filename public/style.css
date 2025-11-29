@@ -1,0 +1,91 @@
+/* Importação de fonte, se desejar */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
+:root {
+    --bg-color: #0d1117; /* Fundo escuro */
+    --card-color: #161b22; /* Fundo da "caixa" */
+    --text-color: #c9d1d9; /* Cor do texto principal */
+    --header-bg: #21262d; /* Fundo do cabeçalho da tabela */
+    --accent-color: #58a6ff; /* Cor do botão (azul) */
+    --hover-color: #79c0ff; /* Cor do hover do botão */
+    --border-color: #30363d; /* Cor da borda/separador */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Use sua fonte favorita */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    width: 100%;
+    /* 🚨 MUDANÇA: Largura ajustada para 4 colunas */
+    max-width: 800px; 
+    text-align: center;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* --- Estilo da Tabela --- */
+
+#devolucoes-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#devolucoes-tabela thead {
+    background-color: var(--header-bg);
+}
+
+#devolucoes-tabela th, 
+#devolucoes-tabela td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#devolucoes-tabela th {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+#devolucoes-tabela tbody tr {
+    /* Cor de fundo para as linhas, se quiser */
+    background-color: var(--card-color); 
+}
+
+/* --- Estilo do Botão --- */
+
+.button-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ocupa toda a largura */
+    font-weight: bold;
+}
+
+.button-primary:hover {
+    background-color: var(--hover-color);
+}

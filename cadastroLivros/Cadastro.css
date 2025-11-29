@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #14274e; /* Fundo azul escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #0f172a; /* Fundo do formulário preto azulado */
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;         /* ✅ Aumenta para acompanhar a tabela */
+    max-width: 900px;   /* ✅ Limita o máximo */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.7); /* sombra mais escura */
+    color: #cbd5e1; /* texto claro */
+    margin: 30px auto;  /* ✅ Centraliza e dá espaço */
+}
+
+h2 {
+    text-align: center;
+    color: #cbd5e1; /* título em tom claro */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    color: #94a3b8; /* labels em tom médio claro */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #334155; /* borda azul escuro */
+    background: #1e293b; /* fundo input azul escuro */
+    color: #e2e8f0; /* texto input claro */
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #64748b; /* cor do placeholder */
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6; /* borda azul ao focar */
+    box-shadow: 0 0 5px #3b82f6;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #3b82f6; /* botão azul vibrante */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #2563eb; /* azul mais escuro no hover */
+}
+
+#msg {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* 👇 Estilo do botão “Mostrar Livros” */
+#btnMostrar {
+    margin-top: 15px; /* espaço entre formulário e botão */
+}
+
+/* 👇*

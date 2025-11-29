@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar no Sistema • Biblioteca</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/entrar.css">
+</head>
+<body>
+  <header>📚 Biblioteca Universitária • PUC-Campinas</header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <h1>Entrar no Sistema</h1>
+        <form id="formLogin">
+          <label>Digite seu RA</label>
+          <input type="text" id="ra" required placeholder="Ex: 25021808" />
+          <button type="submit" id="btnEntrar">Entrar</button>
+          <div id="msg" class="msg"></div>
+        </form>
+        <a href="index.html" class="voltar">⬅ Voltar ao Menu</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- IMPORTANTE: caminho relativo correto -->
+  <script src="js/entrar.js"></script>
+</body>
+</html>

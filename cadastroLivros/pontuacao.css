@@ -1,0 +1,83 @@
+/* ESTILO BASE */
+
+body {
+    font-family: "Poppins", system-ui, -apple-system, Roboto, Arial;
+    background: linear-gradient(135deg, #1e3a8a, #111827);
+    color: #f1f5f9;
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    padding: 40px 24px; /* mais espaço já que não tem header */
+}
+
+.card {
+    background: #111827;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    width: 95%;
+    max-width: 850px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 1.8rem;
+}
+
+/* Badges de categorias */
+
+.iniciante { background: #0b3b18; border-color: #166534; color: #bbf7d0; }
+.regular   { background: #172554; border-color: #1d4ed8; color: #bfdbfe; }
+.ativo     { background: #3a1a00; border-color: #ea580c; color: #fed7aa; }
+.extremo   { background: #3b0d16; border-color: #be123c; color: #fecdd3; }
+
+/* LISTAS */
+
+.secao {
+    margin-bottom: 28px;
+}
+
+.titulo-categoria {
+    margin: 20px 0 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    width: fit-content;
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.lista {
+    list-style: none;
+    padding: 12px;
+    margin: 0;
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+}
+
+.lista li {
+    padding: 10px 8px;
+    border-bottom: 1px solid #1f2937;
+    color: #e2e8f0;
+    line-height: 1.4rem;
+}
+
+.lista li:last-child {
+    border-bottom: none;
+}
+
+strong {
+    color: #93c5fd;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 1.2rem;
+    }
+}
